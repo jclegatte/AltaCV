@@ -1,0 +1,262 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.4, 12 Apr 2021) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and packages.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{DarkPastelGreen}{HTML}{669D6D}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{PastelGreen}{HTML}{79A054}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelGreen}
+\colorlet{heading}{DarkPastelGreen}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelGreen}
+\colorlet{accent}{PastelGreen}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% Use (and optionally edit if necessary) this .cfg if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+\input{pubs-authoryear.cfg}
+
+%% Use (and optionally edit if necessary) this .cfg if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+% \input{pubs-num.cfg}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+\begin{document}
+\name{Jean-Christophe Legatte}
+\tagline{Network engineer}
+%% You can add multiple photos on the left or right
+\photoR{2.8cm}{Jc_Legatte.jpeg}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{jclegatte@gmail.com}
+  \phone{+336 01 79 26 25}
+  \location{Maisons-Laffite, France}
+  \linkedin{https://www.linkedin.com/in/jean-christophe-legatte-b9b86298/}
+  \github{https://github.com/jclegatte}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Experiences}
+\cvevent{}{BLADE - SHADOW / Cloud Computing}{since Sept 2020 -- Ongoing}{Paris}
+\begin{itemize}
+\item Operate 8 DCs worldwide and 2 PoPs
+\item Operate the company public ASNs (RIPE, ARIN, APNIC)
+\item 2.5+Tb/s transit/ix/peering capacity over more than 40 peers
+\item Large-scale deployment in multi-vendors data-centers with home made automation tools. BUILD/RUN/On call.
+\item BGP EVPN/VXLAN - BGP to the Host over Clos Network architecture
+\item Project lead : Cumulus NOS migration, BGPtth Juniper Automation, NFTables deployment, Sonic POC
+\end{itemize}
+\cvevent{}{ORANGE PORTAIL - hebergement/exploitation}{from Aug 2010 to Sept 2020}{Bagnolet}
+\begin{itemize}
+\item Datacenter TechLead : Operate network infrastructure in 3 DCs used to provide Orange Portal Services (www.orange.fr) and private cloud services for Orange Digital Factory
+\item Large-scale deployment in multi-vendors data-centers with home made automation tools
+\item 800 network equipment. BUILD/RUN/On call.
+* Firewalls, routers and load balancers L4/L7 (appliance and open-source)
+\item Provisioning, automation and CI/CD. Config management and supervision - Ansible and API.
+\item Network metrics by Platform Service using SNMP, SFLOW
+\item Project lead in 3DCs : deployment Juniper QFabric 10/40Gbits / Core network Cisco Nexus 9000 and Juniper McLag / fabric L3 Clos Architecture with OSPF, Mellanox and Cumulus / IPV6 - Dual Stack for firewalls and Load balancer / Juniper CoS conformity on QFX Platform.
+\end{itemize}
+\cvevent{}{Société Générale - ALD AUTOMOTIVE HOLDING}{from sept 2007 to aug 2010}{Clichy}
+\begin{itemize}
+\item Network Manager Holding International (40 countries), BUILD and RUN for AN, MAN, WAN
+\item Design network architectures (dynamic routing, Qos optimisation, security )
+\item International connectivity and resiliency to these DCs using MPLS / BGP / VPN IPSec
+\item Network SLA, Network budget and Challenging providers
+\item Projects: complete deployment of the network infrastructure for 2 Datacenters with PRA
+\end{itemize}
+
+% use ONLY \newpage if you want to force a page break for
+%%% ONLY the current column
+%%\newpage
+%%
+%%\cvsection{Publications}
+%%
+%%\nocite{*}
+%%
+%%\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+%%
+%%\divider
+%%
+%%\printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
+%%
+%%\divider
+%%
+%%\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+%%\cvsection{My Life Philosophy}
+%%
+%%\begin{quote}
+%%``Something smart or heartfelt, preferably in one sentence.''
+%%\end{quote}
+%%
+%%\cvsection{Most Proud of}
+%%
+%%\cvachievement{\faTrophy}{Fantastic Achievement}{and some details about it}
+%%
+%%\divider
+%%
+%%\cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
+%%
+%%\divider
+%%
+%%\cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
+
+%%\cvsection{Strengths}
+%%
+%%\cvtag{motivation}
+%%\cvtag{team spirit}\\
+%%\cvtag{rigorous}
+
+\cvsection{Skills}
+\cvtag{TCP/IP}
+\cvtag{OSPF}
+\cvtag{BGP EVPN/VXLAN}
+\cvtag{Traffic Engineering}
+\cvtag{IPv6}
+\cvtag{Debian}
+\cvtag{Nftables}
+\cvtag{Bird-FRR-Quagga}
+\cvtag{Ipvsadm-HAproxy}
+\cvtag{YAML}
+\cvtag{Vagrant-Virtuallab}
+
+\divider\smallskip\divider
+\cvtag{Cisco Nexus-ASR-Cat}
+\cvtag{Juniper QFX-MX-SRX }
+\cvtag{Nvidia Cumulus/Mellanox}
+\cvtag{Arista}
+\cvtag{Nortel}
+\cvtag{HP}
+\cvtag{Dell}
+\cvtag{F5 Viprion and GSLB}
+\cvtag{Fortinet}
+\cvtag{Cisco}
+
+\divider\smallskip\divider
+\cvtag{InfraAsCode}
+\cvtag{Git}
+\cvtag{Docker}
+\cvtag{Jinja2}
+\cvtag{Ansible}
+\cvtag{Jerikan}
+\cvtag{Bash, Python}
+\cvtag{ZTP-ONIE}
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+\medskip
+
+\cvsection{Education}
+
+\cvevent{ITESCIA, Ecole supérieure d’Informatique agréé par la CCI du Val d’Oise}{Master 2 Informatique, Réseaux et Télécoms, Management des SI. Alternance chez Orange et IBM}{2004-2007}{Cergy}
+
+\cvevent{BTS Informatique de Gestion, option réseau – Lycée Turgot à Paris}{Stage Caisse des Dépôts et Consignations}{2002-2004}{Paris}
+
+\cvevent{Cisco Certifications :}{CCNA, CCNP RS, CCNP SP : Module 642-887 SPCORE, CCDP 300-320 ARCH}{}{}
+\cvevent{Juniper Certifications :}{JNCIA Junos, JNCIA DevOps}{}{}
+
+\cvsection{Languages}
+
+\cvskill{English - TOEIC 845 }{4}
+\divider
+
+\cvskill{Spanish}{2}
+\divider
+
+%%\cvsection{Referees}
+%%
+%%% \cvref{name}{email}{mailing address}
+%%\cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
+%%{Address Line 1\\Address line 2}
+%%
+%%\divider
+%%
+%%\cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
+%%{Address Line 1\\Address line 2}
+
+\end{paracol}
+
+\end{document}
